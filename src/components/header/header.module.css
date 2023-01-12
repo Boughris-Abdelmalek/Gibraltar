@@ -1,0 +1,51 @@
+.header {
+  background-color: #232f3e;
+}
+
+.navigation {
+  width: 100%;
+}
+
+.navigation ul {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 1rem;
+  align-items: center;
+}
+
+.logoImg {
+  position: absolute;
+  translate: 2.25rem 2rem;
+  width: 6rem;
+  height: auto;
+}
+
+.logoTxt {
+  position: absolute;
+  translate: 0 -4rem;
+  width: 10rem;
+}
+
+.logoContainer {
+  position: relative;
+  overflow: hidden;
+  height: 4rem;
+  width: 10rem;
+}
+
+.searchBarContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SearchBar {
+  height: 2rem;
+  min-width: 40vw;
+  border-radius: 0;
+  border: none;
+}
+
+.AuthUser {
+  color: white;
+}

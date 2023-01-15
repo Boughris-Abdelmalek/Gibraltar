@@ -1,16 +1,24 @@
 .header {
+  height: 4rem;
   background-color: #232f3e;
-}
-
-.navigation {
-  width: 100%;
 }
 
 .navigation ul {
   display: flex;
   justify-content: space-between;
+  gap: 1rem;
   padding-right: 1rem;
   align-items: center;
+}
+
+.navigation ul > :nth-child(3),
+.navigation ul > :nth-child(4),
+.navigation ul > :nth-child(5) {
+  min-width: 140px;
+}
+
+h5 {
+  font-family: "Amazon Ember Bold";
 }
 
 .logoImg {
@@ -30,7 +38,7 @@
   position: relative;
   overflow: hidden;
   height: 4rem;
-  width: 10rem;
+  min-width: 10rem;
 }
 
 .searchBarContainer {
@@ -48,6 +56,10 @@
 
 .userContainer {
   color: white;
+}
+
+.userContainer p {
+  font-size: 0.75rem;
 }
 
 .basketContainer {

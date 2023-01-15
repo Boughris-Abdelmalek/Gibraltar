@@ -1,5 +1,5 @@
-import logo from "../../assets/logo.png";
-import logoSvg from "../../assets/logo.svg";
+import logo from "../../assets/images/logo.png";
+import logoSvg from "../../assets/images/logo.svg";
 import styles from "./header.module.css";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';

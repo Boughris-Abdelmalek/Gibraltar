@@ -1,0 +1,23 @@
+.CategoryCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 1rem;
+    aspect-ratio: 1;
+    max-width: 400px;
+    padding: 1rem;
+    background-color: white;
+    cursor: pointer;
+}
+
+.imgCategoryContainer {
+    width: 100%;
+    height: 100%;
+}
+
+.imgCategoryContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}

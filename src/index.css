@@ -1,0 +1,58 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+/*   outline: 1px solid #f00 !important;
+ */}
+
+@font-face {
+    font-family: "Amazon Ember Bold";
+    src: url("./assets/fonts/AmazonEmber_Bd.ttf");
+}
+
+@font-face {
+    font-family: "Amazon Ember Light";
+    src: url("./assets/fonts/AmazonEmber_Lt.ttf");
+}
+
+html, body {
+    font-family: "Amazon Ember Light";
+    height: 100%;
+}
+
+body {
+    background-color: #E9E9E9;
+}
+/* 
+    Name: Mellow Apricot
+    Hex: #febd69
+    RGB: (254, 189, 105)
+    CMYK: 0, 0.255, 0.586, 0.003
+
+	
+Gunmetal	
+
+    Name: Gunmetal
+    Hex: #232f3e
+    RGB: (35, 47, 62)
+    CMYK: 0.435, 0.241, 0, 0.756
+
+	
+Charcoal	
+
+    Name: Charcoal
+    Hex: #37475a
+    RGB: (55, 71, 90)
+    CMYK: 0.388, 0.211, 0, 0.647
+
+	
+Eerie Black	
+
+    Name: Eerie Black
+    Hex: #131a22
+    RGB: (19, 26, 34)
+    CMYK: 0.441, 0.235, 0, 0.866
+     */

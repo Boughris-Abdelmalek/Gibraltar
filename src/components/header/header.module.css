@@ -14,7 +14,7 @@
 .navigation ul > :nth-child(3),
 .navigation ul > :nth-child(4),
 .navigation ul > :nth-child(5) {
-  min-width: 140px;
+  min-width: fit-content;
 }
 
 h5 {

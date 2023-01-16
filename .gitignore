@@ -22,3 +22,22 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+#// Import the functions you need from the SDKs you need
+#import { initializeApp } from "firebase/app";
+#// TODO: Add SDKs for Firebase products that you want to use
+#// https://firebase.google.com/docs/web/setup#available-libraries
+#
+#// Your web app's Firebase configuration
+#const firebaseConfig = {
+#  apiKey: "AIzaSyA-_zDD84xOViatVycqAZ9lVRWK_WLZp_A",
+#  authDomain: "gibraltar-e7c1d.firebaseapp.com",
+#  projectId: "gibraltar-e7c1d",
+#  storageBucket: "gibraltar-e7c1d.appspot.com",
+#  messagingSenderId: "866470377837",
+#  appId: "1:866470377837:web:a76abaa4c127c63d110264"
+#};
+#
+#// Initialize Firebase
+#const app = initializeApp(firebaseConfig);

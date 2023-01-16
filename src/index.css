@@ -26,6 +26,11 @@ html, body {
 body {
     background-color: #E9E9E9;
 }
+
+#root {
+    height: 100%;
+}
+
 /* 
     Name: Mellow Apricot
     Hex: #febd69

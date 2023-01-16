@@ -1,0 +1,41 @@
+.formContainerOuter {
+  display: grid;
+  place-items: center;
+  height: 100%;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  width: 25rem;
+  height: 30rem;
+  padding: 1.5rem;
+  margin-block: 10rem;
+  border-radius: 2px;
+  background-color: white;
+}
+
+.logoImg {
+  position: absolute;
+  translate: .25rem 4rem;
+  width: 12rem;
+  height: auto;
+}
+
+.logoTxt {
+  position: absolute;
+  translate: 0 -8rem;
+  width: 20rem;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  height: 8rem;
+  width: 100%;
+  background-color: black;
+}

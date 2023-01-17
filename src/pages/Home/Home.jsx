@@ -26,8 +26,7 @@ const Home = () => {
         <Swiper
           slidesPerView={1}
           navigation
-          loop={true}
-          autoplay={false}
+          loop
           className={styles.ImgContainer}
         >
           <SwiperSlide>

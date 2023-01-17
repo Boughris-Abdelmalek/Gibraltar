@@ -3,7 +3,7 @@ import { Box, Button, TextField } from "@mui/material";
 import logoSvg from "../../assets/images/logo.svg";
 import logo from "../../assets/images/logo.png";
 
-const Form = (props) => {
+const Form = ({ title, setEmail, setPassword, handleAction }) => {
   return (
     <div className={styles.formContainerOuter}>
       <div className={styles.logoContainer}>
@@ -20,14 +20,14 @@ const Form = (props) => {
         autoComplete="off"
         className={styles.formContainer}
       >
-        <h3>{props.title}</h3>
+        <h3>{title}</h3>
         <TextField
           id="outlined-basic"
           label="Email"
           type="email"
           variant="outlined"
           required
-          onChange={(e) => props.setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <TextField
           id="outlined-basic"
@@ -35,7 +35,7 @@ const Form = (props) => {
           type="password"
           variant="outlined"
           required
-          onChange={(e) => props.setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <TextField
           id="outlined-basic"
@@ -56,9 +56,9 @@ const Form = (props) => {
               boxShadow: "inset -1px -2px 10px 2px rgba(125,123,125,.5)",
             },
           }}
-          handleAction={props.handleAction}
+          handleAction={handleAction}
         >
-          {props.title}
+          {title}
         </Button>
         <p>
           Already have an account ? <strong>Sign in</strong>

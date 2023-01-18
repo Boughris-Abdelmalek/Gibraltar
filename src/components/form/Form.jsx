@@ -3,7 +3,7 @@ import { Box, Button, TextField } from "@mui/material";
 import logoSvg from "../../assets/images/logo.svg";
 import logo from "../../assets/images/logo.png";
 
-const Form = ({ title, setEmail, setPassword, handleAction }) => {
+const Form = ({ title, setEmail, setPassword, handleAction, register }) => {
   return (
     <div className={styles.formContainerOuter}>
       <div className={styles.logoContainer}>
@@ -15,10 +15,10 @@ const Form = ({ title, setEmail, setPassword, handleAction }) => {
         sx={{
           "& > not(style)": { m: 1, width: "25ch" },
         }}
-        withou
         noValidate
         autoComplete="off"
         className={styles.formContainer}
+        onSubmit={handleAction}
       >
         <h3>{title}</h3>
         <TextField
@@ -37,13 +37,13 @@ const Form = ({ title, setEmail, setPassword, handleAction }) => {
           required
           onChange={(e) => setPassword(e.target.value)}
         />
-        <TextField
+        {register && <TextField
           id="outlined-basic"
           label="Re-enter password"
           type="password"
           variant="outlined"
           required
-        />
+        />}
         <Button
           variant="contained"
           sx={{
@@ -56,7 +56,7 @@ const Form = ({ title, setEmail, setPassword, handleAction }) => {
               boxShadow: "inset -1px -2px 10px 2px rgba(125,123,125,.5)",
             },
           }}
-          handleAction={handleAction}
+          type="submit"
         >
           {title}
         </Button>

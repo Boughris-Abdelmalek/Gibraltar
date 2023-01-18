@@ -3,20 +3,26 @@ import { UserAuth } from "../../context/AuthContent";
 import { useNavigate } from "react-router-dom";
 import Form from "../../components/form/Form";
 
-const Login = () => {
+const Register = () => {
   const navigate = useNavigate();
-  const { signIn } = UserAuth();
+  const { createUser } = UserAuth();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordCheck, setPasswordCheck] = useState("");
   const [error, setError] = useState("");
 
   const handleAction = async (e) => {
     e.preventDefault();
     setError("");
+
+    if (password !== passwordCheck) {
+        console.log("Password didn't match");
+    }
+
     try {
-      await signIn(email, password);
-      navigate("/");
+      await createUser(email, password);
+      navigate("/login");
     } catch (error) {
       setError(error.message);
       console.log(error.message);
@@ -25,13 +31,13 @@ const Login = () => {
 
   return (
     <Form 
-      title="Sign In"
+      title="Sign Up"
       setEmail={setEmail}
       setPassword={setPassword}
       handleAction={(e) => handleAction(e)}
-      register={false}
+      register
     />
   );
 };
 
-export default Login;
+export default Register;

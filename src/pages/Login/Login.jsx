@@ -1,48 +1,36 @@
-import { useState, useEffect, useRef } from "react";
-import { useAuth } from "../../context/AuthContent";
-import { auth } from "../../../firebase-config";
+import { useState } from "react";
+import { UserAuth } from "../../context/AuthContent";
 import { useNavigate } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { signIn } = UserAuth();
 
-  const emailRef = useRef();
-  const passwordRef = useRef();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  /* 
-  const handleAction = async () => {
-    if (password !== passwordConfirm) {
-      setError("Password do not match");
-    }
-    await signUp(email, password).catch((err) =>
-      console.log(JSON.stringify(err))
-    );
-    navigate("/");
-  }; */
 
-  async function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
     try {
-      const userCredential = await login(
-        emailRef.current.value,
-        passwordRef.current.value
-      );
-      const user = userCredential.user;
-      //navigate("/home");
-      console.log(user);
+      await signIn(email, password);
+      navigate("/");
     } catch (error) {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log(errorCode, errorMessage);
     }
-  }
+  };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="email" ref={emailRef} required />
-      <input type="password" ref={passwordRef} required />
+      <input type="email" onChange={(e) => setEmail(e.target.value)} required />
+      <input
+        type="password"
+        onChange={(e) => setPassword(e.target.value)}
+        required
+      />
       <button type="submit">Sign in</button>
     </form>
   );

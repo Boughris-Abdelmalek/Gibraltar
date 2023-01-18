@@ -3,16 +3,16 @@ import { auth } from "../../firebase-config";
 
 const AuthContext = createContext();
 
-export const useAuth = () => {
+export function useAuth() {
   return useContext(AuthContext);
-};
+}
 
-export const AuthProvider = ({ children }) => {
+export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
   /* const [loading, setLoading] = useState(true); */
 
   const login = (email, password) => {
-    return auth.signInWithEmailAndPassword(email, password);
+    return signInWithEmailAndPassword(auth, email, password);
   };
 
   const signOut = () => {
@@ -28,7 +28,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
       setCurrentUser(user);
       /* setLoading(false); */
     });
@@ -41,12 +41,8 @@ export const AuthProvider = ({ children }) => {
     getUser,
     login,
     signOut,
-    signUp
-  }
+    signUp,
+  };
 
-  return (
-    <AuthContext.Provider value={value}>
-        {children}
-    </AuthContext.Provider>
-    );
-};
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+}

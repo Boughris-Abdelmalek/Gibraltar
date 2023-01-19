@@ -1,3 +1,6 @@
+import { UserAuth } from "../../context/AuthContent";
+import { Link } from "react-router-dom";
+
 import logo from "../../assets/images/logo.png";
 import logoSvg from "../../assets/images/logo.svg";
 import styles from "./header.module.css";
@@ -6,6 +9,8 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { SvgIcon } from "@mui/material";
 
 const Header = () => {
+  const { user } = UserAuth();
+
   return (
     <header className={styles.header}>
       <nav className={styles.navigation}>
@@ -34,9 +39,15 @@ const Header = () => {
           </li>
           <li>
             <div className={styles.userContainer}>
-              <p>Hello boughris@outlook.fr</p>
-              <h5>Login</h5>
-            </div>
+            {user ? <>
+              <p>{user.email}</p>
+              <h5>Account</h5>
+            </> : <>
+            <p>example@email.com</p>
+              <h5><Link to="/login">Login</Link></h5>
+            </>
+              }
+            </div> 
           </li>
           <li>
             <div className={styles.userContainer}>

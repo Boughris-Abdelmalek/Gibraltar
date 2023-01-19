@@ -1,15 +1,22 @@
 import { UserAuth } from "../../context/AuthContent";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import logo from "../../assets/images/logo.png";
 import logoSvg from "../../assets/images/logo.svg";
 import styles from "./header.module.css";
 import SearchIcon from "@mui/icons-material/Search";
-import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import { SvgIcon } from "@mui/material";
 
 const Header = () => {
-  const { user } = UserAuth();
+  const navigate = useNavigate();
+  const { logout, user } = UserAuth();
+
+  const handleLogOut = async () => {
+    await logout();
+    navigate("/login");
+  }
 
   return (
     <header className={styles.header}>
@@ -39,15 +46,20 @@ const Header = () => {
           </li>
           <li>
             <div className={styles.userContainer}>
-            {user ? <>
-              <p>{user.email}</p>
-              <h5>Account</h5>
-            </> : <>
-            <p>example@email.com</p>
-              <h5><Link to="/login">Login</Link></h5>
-            </>
-              }
-            </div> 
+              {user ? (
+                <>
+                  <p>{user.email}</p>
+                  <button onClick={handleLogOut}>Sign Out</button>
+                </>
+              ) : (
+                <>
+                  <p>example@email.com</p>
+                  <h5>
+                    <Link to="/login">Login</Link>
+                  </h5>
+                </>
+              )}
+            </div>
           </li>
           <li>
             <div className={styles.userContainer}>
@@ -62,7 +74,7 @@ const Header = () => {
             </div>
           </li>
           <li className={styles.basketContainer}>
-          <SvgIcon
+            <SvgIcon
               component={ShoppingBasketIcon}
               sx={{
                 fill: "white",

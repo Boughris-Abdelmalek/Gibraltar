@@ -21,7 +21,7 @@ const Form = ({ title, setEmail, setPassword, handleAction, register }) => {
         onSubmit={handleAction}
       >
         <h3>{title}</h3>
-        <TextField
+        <TextField                                   
           id="outlined-basic"
           label="Email"
           type="email"

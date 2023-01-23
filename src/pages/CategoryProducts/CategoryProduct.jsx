@@ -1,5 +1,5 @@
 import Header from "../../components/header/Header";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { db } from "../../utils/firebase-config";
 import { onValue, ref } from "firebase/database";
 import { useEffect, useState } from "react";
@@ -12,8 +12,6 @@ import styles from "./category.module.css";
 const CategoryProduct = () => {
   let { productsCategory } = useParams();
   const [dataset, setDataset] = useState([]);
-
-  const navigate = useNavigate();
 
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 12;
@@ -35,8 +33,6 @@ const CategoryProduct = () => {
       }
     });
   }, [productsCategory]);
-
-  console.log(dataset);
 
   const handlePageClick = (e) => {
     setCurrentPage(e.selected);

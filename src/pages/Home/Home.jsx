@@ -1,11 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Autoplay } from "swiper";
 
-import { useState, useEffect } from "react";
-
-import { database } from "../../utils/firebase-config";
-import { onValue, ref } from "firebase/database";
-
 import Header from "../../components/header/Header";
 import CategoryCard from "../../components/categoryCard/CategoryCard";
 
@@ -22,24 +17,8 @@ import "swiper/css/navigation";
 
 SwiperCore.use([Navigation, Autoplay]);
 
+
 const Home = () => {
-  const [projects, setProjects] = useState([]);
-
-  useEffect(() => {
-    const query = ref(database, "marketing_sample_for_amazon_com");
-    return onValue(query, (snapshot) => {
-      const data = snapshot.val();
-
-      if (snapshot.exists()) {
-        Objects.values(data).map((project) => {
-          setProjects((projects) => [...projects, project]);
-        });
-        console.log(data);
-      }
-    })
-  }, []);
-  
-
   return (
     <>
       <Header />

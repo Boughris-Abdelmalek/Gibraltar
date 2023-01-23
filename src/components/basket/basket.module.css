@@ -1,0 +1,11 @@
+.basketContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    aspect-ratio: 2/4;
+    min-width: 15rem;
+    padding: 2rem;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}

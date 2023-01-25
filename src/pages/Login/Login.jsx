@@ -1,30 +1,29 @@
 import { useState } from "react";
-import { UserAuth } from "../../context/AuthContent";
+import { useAuthState, useAuthDispatch } from "../../context/Context";
+import { signIn } from "../../context/Actions";
 import { useNavigate } from "react-router-dom";
 import Form from "../../components/form/Form";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { signIn } = UserAuth();
+  const authDispatch = useAuthDispatch();
+  const authState = useAuthState();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
 
   const handleAction = async (e) => {
     e.preventDefault();
-    setError("");
     try {
-      await signIn(email, password);
+      signIn(authDispatch, { email, password });
       navigate("/");
     } catch (error) {
-      setError(error.message);
       console.log(error.message);
     }
   };
 
   return (
-    <Form 
+    <Form
       title="Sign In"
       setEmail={setEmail}
       setPassword={setPassword}

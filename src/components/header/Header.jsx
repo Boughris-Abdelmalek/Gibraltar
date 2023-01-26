@@ -1,4 +1,5 @@
-import { UserAuth } from "../../context/AuthContent";
+import { useAuthState, useAuthDispatch } from "../../context/Context";
+import { logout } from "../../context/Actions";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -11,10 +12,13 @@ import { SvgIcon } from "@mui/material";
 
 const Header = () => {
   const navigate = useNavigate();
-  const { logout, user } = UserAuth();
+  const authDispatch = useAuthDispatch();
+  const authState = useAuthState();
+  const { user } = authState;
 
   const handleLogOut = async () => {
-    await logout();
+    console.log(authState.user);
+    await authDispatch(logout());
     navigate("/login");
   }
 

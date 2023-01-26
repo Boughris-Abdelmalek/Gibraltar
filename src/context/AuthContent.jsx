@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+/* import { createContext, useContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -44,3 +44,4 @@ export const AuthContextProvider = ({ children }) => {
 export const UserAuth = () => {
   return useContext(UserContext);
 };
+ */

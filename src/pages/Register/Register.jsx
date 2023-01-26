@@ -1,30 +1,29 @@
 import { useState } from "react";
-import { UserAuth } from "../../context/AuthContent";
+import { useAuthState, useAuthDispatch } from "../../context/Context";
+import { createUser } from "../../context/Actions";
 import { useNavigate } from "react-router-dom";
 import Form from "../../components/form/Form";
 
 const Register = () => {
   const navigate = useNavigate();
-  const { createUser } = UserAuth();
+  const authDispatch = useAuthDispatch();
+  const authState = useAuthState();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordCheck, setPasswordCheck] = useState("");
-  const [error, setError] = useState("");
 
   const handleAction = async (e) => {
     e.preventDefault();
-    setError("");
 
     if (password !== passwordCheck) {
         console.log("Password didn't match");
     }
 
     try {
-      await createUser(email, password);
-      navigate("/login");
+      createUser(authDispatch, { email, password });
+      navigate("/");
     } catch (error) {
-      setError(error.message);
       console.log(error.message);
     }
   };

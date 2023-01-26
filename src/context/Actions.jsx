@@ -20,7 +20,11 @@ export const SET_USER = "SET_USER";
 export const createUser = (email, password) => async (dispatch) => {
   try {
     dispatch({ type: CREATE_USER });
-    const { user } = await createUserWithEmailAndPassword(auth, email, password);
+    const { user } = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
     dispatch({ type: CREATE_USER_SUCCESS, payload: user });
   } catch (error) {
     dispatch({ type: CREATE_USER_ERROR, payload: error });
@@ -28,27 +32,28 @@ export const createUser = (email, password) => async (dispatch) => {
 };
 
 export const signIn = (email, password) => async (dispatch) => {
-    try {
-      dispatch({ type: SIGNIN_USER });
-      const { user } = await signInWithEmailAndPassword(auth, email, password);
-      dispatch({ type: SIGNIN_USER_SUCCESS, payload: user });
-    } catch (error) {
-      dispatch({ type: SIGNIN_USER_ERROR, payload: error });
-    }
+  try {
+    dispatch({ type: SIGNIN_USER });
+    const { user } = await signInWithEmailAndPassword(auth, email, password);
+    dispatch({ type: SIGNIN_USER_SUCCESS, payload: user });
+  } catch (error) {
+    dispatch({ type: SIGNIN_USER_ERROR, payload: error });
+  }
 };
 
 export const logout = () => (dispatch) => {
-    try {
-        dispatch({ type: SIGNOUT_USER });
-        signOut(auth);
-        dispatch({ type: SIGNOUT_USER_SUCCESS });
-    } catch (error) {
-        dispatch({ type: SIGNOUT_USER_ERROR, payload: error });
-    }
-}
+  try {
+    dispatch({ type: SIGNOUT_USER });
+    signOut(auth);
+    dispatch({ type: SIGNOUT_USER_SUCCESS });
+  } catch (error) {
+    dispatch({ type: SIGNOUT_USER_ERROR, payload: error });
+  }
+};
 
 export const setUser = (dispatch) => {
-    return onAuthStateChanged(auth, (currentUser) => {
-        dispatch({ type: SET_USER, paload: currentUser });
-    });
-}
+  return onAuthStateChanged(auth, (currentUser) => {
+    console.log(currentUser);
+    dispatch({ type: SET_USER, paload: currentUser });
+  });
+};

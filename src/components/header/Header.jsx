@@ -1,6 +1,6 @@
-import { UserAuth } from "../../context/AuthContent";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
+import { useLogout } from "../../hooks/useLogout";
 
 import logo from "../../assets/images/logo.png";
 import logoSvg from "../../assets/images/logo.svg";
@@ -8,15 +8,11 @@ import styles from "./header.module.css";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import { SvgIcon } from "@mui/material";
+import { useContext } from "react";
 
 const Header = () => {
-  const navigate = useNavigate();
-  const { logout, user } = UserAuth();
-
-  const handleLogOut = async () => {
-    await logout();
-    navigate("/login");
-  }
+  const { user } = useContext(AuthContext);
+  const { logout } = useLogout();
 
   return (
     <header className={styles.header}>
@@ -49,7 +45,7 @@ const Header = () => {
               {user ? (
                 <>
                   <p>{user.email}</p>
-                  <button onClick={handleLogOut}>Sign Out</button>
+                  <button onClick={logout}>Sign Out</button>
                 </>
               ) : (
                 <>

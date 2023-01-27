@@ -1,33 +1,19 @@
 import { useState } from "react";
-import { useAuthState, useAuthDispatch } from "../../context/Context";
-import { signIn } from "../../context/Actions";
-import { useNavigate } from "react-router-dom";
+import { useLogin } from "../../hooks/useLogin";
 import Form from "../../components/form/Form";
 
 const Login = () => {
-  const navigate = useNavigate();
-  const authDispatch = useAuthDispatch();
-  const authState = useAuthState();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleAction = async (e) => {
-    e.preventDefault();
-    try {
-      signIn(authDispatch, { email, password });
-      navigate("/");
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
+  const { login, isPending } = useLogin({ email, password });
 
   return (
     <Form
       title="Sign In"
       setEmail={setEmail}
       setPassword={setPassword}
-      handleAction={(e) => handleAction(e)}
+      handleAction={login}
       register={false}
     />
   );

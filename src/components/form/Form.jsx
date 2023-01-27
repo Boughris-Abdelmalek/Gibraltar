@@ -2,6 +2,7 @@ import styles from "./form.module.css";
 import { Box, Button, TextField } from "@mui/material";
 import logoSvg from "../../assets/images/logo.svg";
 import logo from "../../assets/images/logo.png";
+import { Link } from "react-router-dom";
 
 const Form = ({ title, setEmail, setPassword, handleAction, register }) => {
   return (
@@ -61,7 +62,7 @@ const Form = ({ title, setEmail, setPassword, handleAction, register }) => {
           {title}
         </Button>
         <p>
-          Already have an account ? <strong>Sign in</strong>
+          Already have an account ? <Link to="/login">Sign in</Link>
         </p>
       </Box>
     </div>

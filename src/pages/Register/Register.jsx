@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { useAuthState, useAuthDispatch } from "../../context/Context";
-import { createUser } from "../../context/Actions";
 import { useNavigate } from "react-router-dom";
 import Form from "../../components/form/Form";
 
 const Register = () => {
   const navigate = useNavigate();
   const authDispatch = useAuthDispatch();
-  const authState = useAuthState();
+  const { createUser } = useAuthState();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

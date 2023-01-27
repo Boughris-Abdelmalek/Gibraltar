@@ -1,14 +1,5 @@
 import {
-  CREATE_USER,
-  CREATE_USER_SUCCESS,
-  CREATE_USER_ERROR,
-  SIGNIN_USER,
-  SIGNIN_USER_SUCCESS,
-  SIGNIN_USER_ERROR,
-  SIGNOUT_USER,
-  SIGNOUT_USER_SUCCESS,
-  SIGNOUT_USER_ERROR,
-  SET_USER
+  ACTIONS
 } from "./Actions";
 
 export const initialState = {
@@ -19,31 +10,31 @@ export const initialState = {
 
 export const AuthReducer = (state, action) => {
   switch (action.type) {
-    case CREATE_USER:
-    case SIGNIN_USER:
-    case SIGNOUT_USER:
+    case ACTIONS.CREATE_USER:
+    case ACTIONS.SIGNIN_USER:
+    case ACTIONS.SIGNOUT_USER:
       return {
         ...state,
         loading: true,
       };
-    case CREATE_USER_SUCCESS:
-    case SIGNIN_USER_SUCCESS:
-    case SET_USER:
+    case ACTIONS.CREATE_USER_SUCCESS:
+    case ACTIONS.SIGNIN_USER_SUCCESS:
+    case ACTIONS.SET_USER:
       return {
         ...state,
         user: action.payload,
         loading: false,
         error: null,
       };
-    case CREATE_USER_ERROR:
-    case SIGNIN_USER_ERROR:
-    case SIGNOUT_USER_ERROR:
+    case ACTIONS.CREATE_USER_ERROR:
+    case ACTIONS.SIGNIN_USER_ERROR:
+    case ACTIONS.SIGNOUT_USER_ERROR:
       return {
         ...state,
         loading: false,
         error: action.payload,
       };
-    case SIGNOUT_USER_SUCCESS:
+    case ACTIONS.SIGNOUT_USER_SUCCESS:
       return {
         ...state,
         user: null,

@@ -1,32 +1,13 @@
 import React from "react";
 import Header from "../../components/header/Header";
 import { useParams } from "react-router-dom";
-import { onValue, ref } from "firebase/database";
-import { db } from "../../utils/firebase-config";
-import { useEffect, useState } from "react";
 import styles from "./productPage.module.css";
 import Basket from "../../components/basket/Basket";
+import useProductData from "../../hooks/useProductData";
 
 const ProductPage = () => {
   const { product } = useParams();
-  const [dataset, setDataset] = useState([]);
-
-  useEffect(() => {
-    const query = ref(db, "marketing_sample_for_amazon_com");
-    return onValue(query, (snapshot) => {
-      const data = snapshot.val();
-
-      if (snapshot.exists()) {
-        const filteredData = Object.values(data).filter((key, val) => {
-          if (key["Uniq Id"] === product) {
-            return key;
-          }
-        });
-
-        setDataset(filteredData[0]);
-      }
-    });
-  }, [product]);
+  const dataset = useProductData(product);
 
   console.log(dataset);
 

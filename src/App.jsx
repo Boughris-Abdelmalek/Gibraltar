@@ -4,6 +4,7 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import CategoryProduct from "./pages/CategoryProducts/CategoryProduct";
 import ProductPage from "./pages/ProductPage/ProductPage";
+import Cart from "./pages/Cart/Cart";
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/cart" element={<Cart />} />
       <Route path="/category/:productsCategory" element={<CategoryProduct />} />
       <Route path="/products/:product" element={<ProductPage />} />
     </Routes>

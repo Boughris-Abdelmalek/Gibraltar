@@ -3,13 +3,39 @@ import styles from "./basket.module.css";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { InputLabel, Select, MenuItem, FormControl } from "@mui/material";
+import useShop from "../../context/ShopContext";
 
-const Basket = (props) => {
+const Basket = ({ name, price, image }) => {
   const [country, setCountry] = useState("");
-  const [quantity, setQuantity] = useState('');
+  const [quantity, setQuantity] = useState(1);
+
+  const { products, addToCart, removeFromCart, updateQuantity } = useShop();
+  const [isInCart, setIsInCart] = useState(false);
+
+  useEffect(() => {
+    const productIsInCart = products.find((product) => product.name === name);
+
+    if (productIsInCart) {
+      setIsInCart(true);
+    } else {
+      setIsInCart(false);
+    }
+  }, [products, name]);
 
   const handleChange = (event) => {
+    const product = { name, price, image, quantity };
     setQuantity(event.target.value);
+    updateQuantity(product, event.target.value);
+  };
+
+  const handleClick = () => {
+    const product = { name, price, image, quantity };
+
+    if (isInCart) {
+      removeFromCart(product);
+    } else {
+      addToCart(product);
+    }
   };
 
   const today = new Date();
@@ -40,7 +66,7 @@ const Basket = (props) => {
 
   return (
     <div className={styles.basketContainer}>
-      <h1>{props.price}€</h1>
+      <h1>{price}€</h1>
       <h5>Delivery {deliveryDate}</h5>
       <p>Deliver to {country}</p>
       <h3>In Stock</h3>
@@ -53,9 +79,6 @@ const Basket = (props) => {
           label="Qty"
           onChange={handleChange}
         >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
           <MenuItem value={1}>1</MenuItem>
           <MenuItem value={5}>5</MenuItem>
           <MenuItem value={10}>10</MenuItem>
@@ -72,8 +95,9 @@ const Basket = (props) => {
                 backgroundColor: "#F7CA00",
               },
             }}
+            onClick={handleClick}
           >
-            Add to Cart
+            {isInCart ? "Remove" : "Add to Cart"}
           </Button>
           <Button
             variant="contained"

@@ -52,7 +52,11 @@ const ProductPage = () => {
             </div>
           </div>
         </div>
-        <Basket price={dataset[" Selling Price "]}/>
+        <Basket
+          price={dataset[" Selling Price "]}
+          name={dataset["Product Name"]}
+          image={dataset.Image}
+        />
       </div>
     </>
   );

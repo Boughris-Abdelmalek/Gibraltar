@@ -70,17 +70,19 @@ const Header = () => {
             </div>
           </li>
           <li className={styles.basketContainer}>
-            <SvgIcon
-              component={ShoppingBasketIcon}
-              sx={{
-                fill: "white",
-                height: "2.5rem",
-                width: "2.5rem",
-                padding: ".25rem",
-                border: "none",
-                cursor: "pointer",
-              }}
-            />
+            <Link to="/cart">
+              <SvgIcon
+                component={ShoppingBasketIcon}
+                sx={{
+                  fill: "white",
+                  height: "2.5rem",
+                  width: "2.5rem",
+                  padding: ".25rem",
+                  border: "none",
+                  cursor: "pointer",
+                }}
+              />
+            </Link>
             <p>0</p>
           </li>
         </ul>

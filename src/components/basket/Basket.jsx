@@ -5,7 +5,7 @@ import Button from "@mui/material/Button";
 import { InputLabel, Select, MenuItem, FormControl } from "@mui/material";
 import useShop from "../../context/ShopContext";
 
-const Basket = ({ name, price, image }) => {
+const Basket = ({ name, price, image, id }) => {
   const [country, setCountry] = useState("");
   const [quantity, setQuantity] = useState(1);
 
@@ -23,13 +23,13 @@ const Basket = ({ name, price, image }) => {
   }, [products, name]);
 
   const handleChange = (event) => {
-    const product = { name, price, image, quantity };
+    const product = { name, price, image, quantity, id };
     setQuantity(event.target.value);
     updateQuantity(product, event.target.value);
   };
 
   const handleClick = () => {
-    const product = { name, price, image, quantity };
+    const product = { name, price, image, quantity, id };
 
     if (isInCart) {
       removeFromCart(product);

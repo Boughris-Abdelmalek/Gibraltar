@@ -30,8 +30,9 @@ h5 {
 
 .logoTxt {
   position: absolute;
-  translate: 0 -4rem;
+  translate: 0 -3.75rem;
   width: 10rem;
+  height: 10rem;
 }
 
 .logoContainer {

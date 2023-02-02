@@ -13,6 +13,7 @@ const CategoryProduct = () => {
   let { productsCategory } = useParams();
   const [dataset, setDataset] = useState([]);
 
+  // Tricky pagination by slicing the response array
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 12;
 
@@ -38,22 +39,39 @@ const CategoryProduct = () => {
     setCurrentPage(e.selected);
   };
 
+  dataset.slice(startIndex, endIndex).map((e) => {
+    if (e) {
+      let valid = true;
+      Object.keys(e).forEach((val) => {
+        // if (e[val] === undefined){
+        //  valid = false;
+        //  console.log(e)
+        // }
+        if (!e[val]) {
+          console.log(e);
+        }
+      });
+    }
+  });
+
   return (
     <>
       <Header />
       <div className={styles.productsContainer}>
         {dataset.slice(startIndex, endIndex).map((e) => {
-          return (
-            <Product
-              class={styles.productCard}
-              img={e.Image}
-              name={e["Product Name"]}
-              price={e[" Selling Price "]}
-              description={e["About Product"].slice(0, 100) + "..."}
-              productId={e["Uniq Id"]}
-              key={e["Uniq Id"]}
-            />
-          );
+          if (e["About Product"]) {
+            return (
+              <Product
+                class={styles.productCard}
+                img={e.Image}
+                name={e["Product Name"]}
+                price={e[" Selling Price "]}
+                description={e["About Product"].slice(0, 100) + "..."}
+                productId={e["Uniq Id"]}
+                key={e["Uniq Id"]}
+              />
+            );
+          }
         })}
       </div>
       <ReactPaginate

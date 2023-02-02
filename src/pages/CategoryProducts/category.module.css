@@ -27,9 +27,10 @@
 }
 
 .productCard img {
-    height: 70%;
+    height: 100%;
+    width: 100%;
     aspect-ratio: 1;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
 }
 

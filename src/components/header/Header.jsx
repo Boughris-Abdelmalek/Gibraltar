@@ -18,10 +18,10 @@ const Header = () => {
     <header className={styles.header}>
       <nav className={styles.navigation}>
         <ul>
-          <li className={styles.logoContainer}>
+          <Link to="/" className={styles.logoContainer}>
             <img src={logoSvg} alt="logoImg" className={styles.logoImg} />
             <img src={logo} alt="logoTxt" className={styles.logoTxt} />
-          </li>
+          </Link>
           <li className={styles.searchBarContainer}>
             <input
               type="search"

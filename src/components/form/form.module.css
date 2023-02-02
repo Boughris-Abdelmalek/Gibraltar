@@ -21,12 +21,12 @@
   position: absolute;
   translate: .25rem 4rem;
   width: 12rem;
-  height: auto;
+  height: 2.5rem;
 }
 
 .logoTxt {
   position: absolute;
-  translate: 0 -8rem;
+  translate: 0 -2rem;
   width: 20rem;
 }
 

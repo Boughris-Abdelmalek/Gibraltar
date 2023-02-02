@@ -10,14 +10,17 @@
 }
 
 .container > :first-child {
+    display: flex;
     min-width: 12rem;
-    aspect-ratio: 1;
+    min-height: calc(100vh - 12rem);
+    gap: 2.5rem;
 }
 
 .container > :first-child img {
     width: 100%;
+    min-width: 20rem;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     aspect-ratio: 1;
 }
 

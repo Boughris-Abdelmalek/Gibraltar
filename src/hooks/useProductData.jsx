@@ -4,6 +4,7 @@ import { db } from "../utils/firebase-config";
 
 const useProductData = (productId) => {
   const [product, setProduct] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const query = ref(db, "marketing_sample_for_amazon_com");
@@ -16,11 +17,12 @@ const useProductData = (productId) => {
           }
         });
         setProduct(filteredData[0]);
+        setLoading(false);
       }
     });
   }, [productId]);
 
-  return product;
+  return { product, loading };
 };
 
 export default useProductData;

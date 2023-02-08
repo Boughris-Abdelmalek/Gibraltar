@@ -26,12 +26,11 @@ const Home = () => {
         >
           {carouselImg.map((img, idx) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={idx}>
                 <img
                   src={img}
                   alt="Image"
                   className={styles.imgCarousel}
-                  key={idx}
                 />
               </SwiperSlide>
             );

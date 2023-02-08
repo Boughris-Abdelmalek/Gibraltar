@@ -1,8 +1,27 @@
+.cartContainer {
+    display: inline-flex;
+    padding: 1rem;
+    gap: 2rem;
+}
+
+.totalContainer {
+    display: grid;
+    place-items: center;
+    background-color: white;
+    width: 18rem;
+    height: 10rem;
+    padding: 2rem;
+}
+
+.totalContainer h3 {
+    text-align: left;
+    width: 100%;
+}
+
 .productContainer {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    margin: 2.5rem;
 }
 
 .productContainer li {

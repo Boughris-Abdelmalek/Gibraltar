@@ -23,6 +23,7 @@ export const ShopProvider = ({ children }) => {
     const updatedCart = state.products.filter(
       (currentProduct) => currentProduct.name !== product.name
     );
+    console.log("updatedCart", updatedCart);
     updatePrice(updatedCart);
 
     dispatch({

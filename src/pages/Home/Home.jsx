@@ -14,6 +14,7 @@ import "swiper/css/navigation";
 SwiperCore.use([Navigation, Autoplay]);
 
 const Home = () => {
+
   return (
     <>
       <Header />

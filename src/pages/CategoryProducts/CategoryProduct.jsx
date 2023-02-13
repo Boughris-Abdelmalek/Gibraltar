@@ -23,20 +23,23 @@ const CategoryProduct = () => {
   const endIndex = startIndex + itemsPerPage;
 
   useEffect(() => {
-    const query = ref(db, "marketing_sample_for_amazon_com");
+    const query = ref(db, "category");
     return onValue(query, (snapshot) => {
       const data = snapshot.val();
 
       if (snapshot.exists()) {
-        const filteredData = Object.values(data).filter((key, val) => {
-          return key["Category"] && key["Category"].includes(productsCategory);
+        const filteredData = Object.keys(data).filter((key, val) => {
+          return data[productsCategory];
         });
 
         setDataset(filteredData);
+        console.log(productsCategory);
         setLoading(false);
       }
     });
   }, [productsCategory]);
+
+  console.log(dataset);
 
   const handlePageClick = (e) => {
     setCurrentPage(e.selected);
@@ -74,7 +77,7 @@ const CategoryProduct = () => {
                     class={styles.productCard}
                     img={e.Image}
                     name={e["Product Name"]}
-                    price={e[" Selling Price "]}
+                    price={e["Selling Price"]}
                     description={e["About Product"].slice(0, 100) + "..."}
                     productId={e["Uniq Id"]}
                     key={e["Uniq Id"]}

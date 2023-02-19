@@ -5,6 +5,7 @@ import Register from "./pages/Register/Register";
 import CategoryProduct from "./pages/CategoryProducts/CategoryProduct";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import Cart from "./pages/Cart/Cart";
+import ProductSearch from "./pages/ProductsSearch/ProductSearch";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <Route path="/register" element={<Register />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/category/:productsCategory" element={<CategoryProduct />} />
+      <Route path="/search/:products" element={<ProductSearch />} />
       <Route path="/products/:product" element={<ProductPage />} />
     </Routes>
   );

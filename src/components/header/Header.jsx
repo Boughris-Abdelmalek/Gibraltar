@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useContext, useRef } from "react";
 
 import { AuthContext } from "../../context/AuthContext";
 import { useLogout } from "../../hooks/useLogout";
@@ -16,6 +16,14 @@ const Header = () => {
   const { user } = useContext(AuthContext);
   const { logout } = useLogout();
 
+  const searchInput = useRef(null);
+
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    navigate(`/search/${searchInput.current.value}`);
+  };
+
   return (
     <header className={styles.header}>
       <nav className={styles.navigation}>
@@ -29,6 +37,7 @@ const Header = () => {
               type="search"
               name="searchBar"
               className={styles.SearchBar}
+              ref={searchInput}
             />
             <SvgIcon
               component={SearchIcon}
@@ -40,6 +49,7 @@ const Header = () => {
                 border: "none",
                 cursor: "pointer",
               }}
+              onClick={handleSearch}
             />
           </li>
           <li>
@@ -47,13 +57,17 @@ const Header = () => {
               {user ? (
                 <>
                   <p>{user.email}</p>
-                  <button onClick={logout} className={styles.signButton}>Sign Out</button>
+                  <button onClick={logout} className={styles.signButton}>
+                    Sign Out
+                  </button>
                 </>
               ) : (
                 <>
                   <p>example@email.com</p>
                   <h5>
-                    <Link to="/login" className={styles.signButton}>Login</Link>
+                    <Link to="/login" className={styles.signButton}>
+                      Login
+                    </Link>
                   </h5>
                 </>
               )}

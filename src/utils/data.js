@@ -8,9 +8,9 @@ export const carouselImg = [img1, img2, img3, img4, img5];
 
 export const categories = [
   {
-    titleCategory: "Cell Phones & Accessories",
+    titleCategory: "Automotive",
     imgCategory:
-      "https://images.unsplash.com/photo-1492138786289-d35ea832da43?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "https://images.unsplash.com/photo-1567789884554-0b844b597180?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YXV0b21vdGl2ZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
   },
   {
     titleCategory: "Video Games",

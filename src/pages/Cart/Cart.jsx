@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import useShop from "../../context/ShopContext";
-import useProductData from "../../hooks/useProductData";
 import ProductInfo from "../../components/productInfos/ProductInfo";
 import styles from "./cart.module.css";
 import Header from "../../components/header/Header";
@@ -9,6 +9,12 @@ import { Button } from "@mui/material";
 
 const Cart = () => {
   const { products, total } = useShop();
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/")
+  } 
 
   return (
     <>
@@ -26,7 +32,8 @@ const Cart = () => {
             );
           })}
         </ul>
-        <div className={styles.totalContainer}>
+        {total === 0 ? (
+          <div className={styles.totalContainer}>
           <h3>Cart Subtotal: {total}€</h3>
           <Button
             variant="contained"
@@ -45,6 +52,27 @@ const Cart = () => {
             Proceed to checkout
           </Button>
         </div>
+        ) : (
+          <div className={styles.alternative}>
+            <Button
+            variant="contained"
+            sx={{
+              backgroundColor: "#F7CA00",
+              borderRadius: "5px",
+              width: "14rem",
+              fontSize: "1rem",
+              color: "black",
+              "&:hover": {
+                backgroundColor: "#F7CB09",
+              },
+            }}
+            type="submit"
+            onClick={handleClick}
+          >
+            Shop now !
+          </Button>
+          </div>
+        )}
       </div>
     </>
   );

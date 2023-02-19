@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+
 import { AuthContext } from "../../context/AuthContext";
 import { useLogout } from "../../hooks/useLogout";
 
 import logo from "../../assets/images/logo.png";
 import logoSvg from "../../assets/images/logo.svg";
 import styles from "./header.module.css";
+
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import { SvgIcon } from "@mui/material";
-import { useContext } from "react";
 
 const Header = () => {
   const { user } = useContext(AuthContext);
@@ -45,13 +47,13 @@ const Header = () => {
               {user ? (
                 <>
                   <p>{user.email}</p>
-                  <button onClick={logout}>Sign Out</button>
+                  <button onClick={logout} className={styles.signButton}>Sign Out</button>
                 </>
               ) : (
                 <>
                   <p>example@email.com</p>
                   <h5>
-                    <Link to="/login">Login</Link>
+                    <Link to="/login" className={styles.signButton}>Login</Link>
                   </h5>
                 </>
               )}

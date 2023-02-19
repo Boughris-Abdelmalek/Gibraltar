@@ -12,33 +12,41 @@ const ProductInfo = ({ product, styles, isCart }) => {
 
   const handleClick = () => {
     //I should destructure the product to use it later Tu va comprendre zebi
-    const currentProduct = { name: product["Product Name"], price: product[" Selling Price "], image: product.Image, id: product["Uniq Id"] };
+    const currentProduct = {
+      name: product["Product Name"] || product.name,
+      price: product["Selling Price"] || product.price,
+      image: product.Image || product.image,
+      id: product["Uniq Id"] || product.id,
+    };
 
     console.log(currentProduct);
 
     removeFromCart(currentProduct);
   };
 
-  console.log(product);
-
   return (
     <li>
       <div>
-        <img src={product.Image} alt={product["Product Name"]} />
+        <img
+          src={product.Image || product.image}
+          alt={product["Product Name"]}
+        />
       </div>
       <div className={styles.productInfos}>
         <div>
-          <h3>{product["Product Name"]}</h3>
-          <h5>{product["About Product"]}</h5>
+          <h3>{product["Product Name"] || product.name}</h3>
+          <h5>{product["About Product"] || product.about}</h5>
         </div>
         {!isCart && <div className={styles.separator}></div>}
         <div>
-          <h3>{product[" Selling Price "]}€</h3>
-          <h5>{product["Category"]}</h5>
+          <h3>{product["Selling Price"] || product.price}€</h3>
+          <h5>{product["Category"] || product.category}</h5>
           {!isCart && (
             <div className={styles.productsRef}>
-              <a href={product["Product Url"]}>Product Url</a>
-              <a href={product["Variants"]}>Product variants</a>
+              <a href={product["Product Url"] || product.url}>Product Url</a>
+              <a href={product["Variants"] || product.variants}>
+                Product variants
+              </a>
             </div>
           )}
           {isCart && (

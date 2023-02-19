@@ -5,15 +5,12 @@ import styles from "./productPage.module.css";
 import Basket from "../../components/basket/Basket";
 import useProductData from "../../hooks/useProductData";
 import { CircularProgress } from "@mui/material";
+import useShop from "../../context/ShopContext";
 
 //gotta make the Product infos split in two or change the db
 
-const ProductInfo = ({ product, styles }) => {
-  const { removeFromCart } = useShop();
+const ProductInfo = ({ product, styles, isCart }) => {
 
-    console.log(currentProduct);
-
-    removeFromCart(currentProduct);
   return (
     <li>
       <div>
@@ -40,6 +37,8 @@ const ProductPage = () => {
   const { product } = useParams();
   const { product: productData, loading } = useProductData(product);
 
+  console.log(productData)
+
   return (
     <>
       <Header />
@@ -48,9 +47,9 @@ const ProductPage = () => {
           <CircularProgress style={{ padding: "75px" }} />
         ) : (
           <>
-            <ProductInfo product={productData} styles={styles} />
+            <ProductInfo product={productData} styles={styles} isCart={false} />
             <Basket
-              price={productData[" Selling Price "]}
+              price={productData["Selling Price"]}
               name={productData["Product Name"]}
               image={productData.Image}
               id={productData["Uniq Id"]}

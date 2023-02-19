@@ -7,7 +7,7 @@ const useProductData = (productId) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const query = ref(db, "marketing_sample_for_amazon_com");
+    const query = ref(db, "products");
     return onValue(query, (snapshot) => {
       const data = snapshot.val();
       if (snapshot.exists()) {

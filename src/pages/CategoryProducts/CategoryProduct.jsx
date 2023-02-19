@@ -28,9 +28,7 @@ const CategoryProduct = () => {
       const data = snapshot.val();
 
       if (snapshot.exists()) {
-        const filteredData = Object.keys(data).filter((key, val) => {
-          return data[productsCategory];
-        });
+        const filteredData = data[`${productsCategory}`];
 
         setDataset(filteredData);
         console.log(productsCategory);
@@ -39,26 +37,9 @@ const CategoryProduct = () => {
     });
   }, [productsCategory]);
 
-  console.log(dataset);
-
   const handlePageClick = (e) => {
     setCurrentPage(e.selected);
   };
-
-  dataset.slice(startIndex, endIndex).map((e) => {
-    if (e) {
-      let valid = true;
-      Object.keys(e).forEach((val) => {
-        // if (e[val] === undefined){
-        //  valid = false;
-        //  console.log(e)
-        // }
-        if (!e[val]) {
-          console.log(e);
-        }
-      });
-    }
-  });
 
   return (
     <>

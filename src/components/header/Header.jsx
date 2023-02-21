@@ -11,10 +11,13 @@ import styles from "./header.module.css";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import { SvgIcon } from "@mui/material";
+import useShop from "../../context/ShopContext";
 
 const Header = () => {
   const { user } = useContext(AuthContext);
   const { logout } = useLogout();
+
+  const { products } = useShop();
 
   const searchInput = useRef(null);
 
@@ -99,7 +102,7 @@ const Header = () => {
                 }}
               />
             </Link>
-            <p>0</p>
+            <p>{products.length}</p>
           </li>
         </ul>
       </nav>

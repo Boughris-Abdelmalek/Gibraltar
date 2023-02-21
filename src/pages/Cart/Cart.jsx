@@ -32,9 +32,9 @@ const Cart = () => {
             );
           })}
         </ul>
-        {total === 0 ? (
+        {total !== 0 ? (
           <div className={styles.totalContainer}>
-          <h3>Cart Subtotal: {total}€</h3>
+          <h3>Cart Subtotal: {total.toFixed(2)}€</h3>
           <Button
             variant="contained"
             sx={{

@@ -13,7 +13,7 @@ const Register = () => {
       setEmail={setEmail}
       setPassword={setPassword}
       handleAction={register}
-      register
+      register={true}
     />
   );
 };

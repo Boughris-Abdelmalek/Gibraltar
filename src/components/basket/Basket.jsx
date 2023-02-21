@@ -64,6 +64,15 @@ const Basket = ({ name, price, image, id, about, category, url, variant }) => {
     fetchData();
   }, []);
 
+  const checkout = async () => {
+    await fetch("http://localhost:4000/checkout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+    })
+  }
+
   return (
     <div className={styles.basketContainer}>
       <h1>{price}€</h1>
@@ -110,6 +119,7 @@ const Basket = ({ name, price, image, id, about, category, url, variant }) => {
                 backgroundColor: "#FA8900",
               },
             }}
+            onClick={checkout}
           >
             Buy Now
           </Button>

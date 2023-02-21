@@ -62,7 +62,7 @@ const Form = ({ title, setEmail, setPassword, handleAction, register }) => {
           {title}
         </Button>
         <p>
-          Already have an account ? <Link to="/login">Sign in</Link>
+          Don't have an account ? <Link to="/register">Sign up</Link>
         </p>
       </Box>
     </div>

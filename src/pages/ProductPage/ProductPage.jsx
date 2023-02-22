@@ -53,6 +53,7 @@ const ProductPage = () => {
               name={productData["Product Name"]}
               image={productData.Image}
               id={productData["Uniq Id"]}
+              price_id={productData["price_id"]}
               about={productData["About Product"]}
               category={productData["Category"]}
               url={productData["Product Url"]}

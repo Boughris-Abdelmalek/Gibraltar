@@ -5,7 +5,7 @@ import Button from "@mui/material/Button";
 import { InputLabel, Select, MenuItem, FormControl } from "@mui/material";
 import useShop from "../../context/ShopContext";
 
-const Basket = ({ name, price, image, id, about, category, url, variant }) => {
+const Basket = ({ name, price, image, id, price_id, about, category, url, variant }) => {
   const [country, setCountry] = useState("");
   const [quantity, setQuantity] = useState(1);
 
@@ -23,13 +23,13 @@ const Basket = ({ name, price, image, id, about, category, url, variant }) => {
   }, [products, name]);
 
   const handleChange = (event) => {
-    const product = { name, price, image, id, about, category, url, variant, quantity };
+    const product = { name, price, image, id, price_id, about, category, url, variant, quantity };
     setQuantity(event.target.value);
     updateQuantity(product, event.target.value);
   };
 
   const handleClick = () => {
-    const product = { name, price, image, id, about, category, url, variant, quantity };
+    const product = { name, price, image, id, price_id, about, category, url, variant, quantity };
 
     if (isInCart) {
       removeFromCart(product);
@@ -63,15 +63,6 @@ const Basket = ({ name, price, image, id, about, category, url, variant }) => {
     };
     fetchData();
   }, []);
-
-  const checkout = async () => {
-    await fetch("http://localhost:4000/checkout", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-    })
-  }
 
   return (
     <div className={styles.basketContainer}>
@@ -119,7 +110,6 @@ const Basket = ({ name, price, image, id, about, category, url, variant }) => {
                 backgroundColor: "#FA8900",
               },
             }}
-            onClick={checkout}
           >
             Buy Now
           </Button>

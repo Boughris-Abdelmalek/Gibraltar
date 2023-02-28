@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    background-color: white;
+    width: calc(100vw - 5rem);
+    min-height: 20rem;
+    padding: 3.5rem;
+}
+
+.container > ul {
+    display: inline-flex;
+    gap: 5rem;
+}

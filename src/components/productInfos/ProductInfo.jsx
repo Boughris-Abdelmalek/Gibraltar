@@ -25,7 +25,7 @@ const ProductInfo = ({ product, styles, isCart }) => {
   };
 
   return (
-    <li>
+    <li className={styles.productInfosContainer}>
       <div>
         <img
           src={product.Image || product.image}

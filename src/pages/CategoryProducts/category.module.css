@@ -88,3 +88,16 @@
         display: flex;
     }
 }
+
+@media (max-width: 850px) {
+    .productsContainer {
+        grid-template-columns: repeat(2, minmax(200px, 1fr));
+        padding-top: 6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .productsContainer {
+        grid-template-columns: minmax(200px, 1fr);
+    }
+}

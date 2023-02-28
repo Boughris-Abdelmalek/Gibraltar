@@ -3,6 +3,7 @@ import SwiperCore, { Navigation, Autoplay } from "swiper";
 
 import Header from "../../components/header/Header";
 import CategoryCard from "../../components/categoryCard/CategoryCard";
+import Footer from "../../components/footer/Footer";
 
 import { categories, carouselImg } from "../../utils/data";
 
@@ -14,7 +15,6 @@ import "swiper/css/navigation";
 SwiperCore.use([Navigation, Autoplay]);
 
 const Home = () => {
-
   return (
     <>
       <Header />
@@ -28,11 +28,7 @@ const Home = () => {
           {carouselImg.map((img, idx) => {
             return (
               <SwiperSlide key={idx}>
-                <img
-                  src={img}
-                  alt="Image"
-                  className={styles.imgCarousel}
-                />
+                <img src={img} alt="Image" className={styles.imgCarousel} />
               </SwiperSlide>
             );
           })}
@@ -48,6 +44,7 @@ const Home = () => {
             );
           })}
         </div>
+        <Footer />
       </div>
     </>
   );

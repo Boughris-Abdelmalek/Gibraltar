@@ -78,6 +78,7 @@
     padding: 2rem;
     gap: 2rem;
     width: 50%;
+    min-width: 15rem;
     max-width: 30rem;
 }
 
@@ -107,4 +108,44 @@ img {
     height: 100%;
     object-fit: contain;
     aspect-ratio: 1;
+}
+
+@media (max-width: 1655px) {
+    .productInfos > :first-child {
+        display: none;
+    }
+}
+
+@media (max-width: 1080px) {
+    .cartContainer {
+        display: block;
+    }
+
+    .productInfos {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .productContainer li {
+        justify-content: center;
+        align-items: center;
+        gap: 0;
+    }
+
+    .totalContainer {
+        margin-inline: auto;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 680px) {
+    .productContainer li {
+        flex-direction: column;
+        height: 60rem;
+        min-width: 20rem;
+    }
+
+    .productContainer li > :first-child {
+        width: 100vw;
+    }
 }

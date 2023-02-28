@@ -28,7 +28,7 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    min-width: 22rem;
+    min-width: 15rem;
     max-width: 35rem;
 }
 
@@ -58,4 +58,43 @@
     display: flex;
     justify-content: space-around;
     width: 100%;
+}
+
+@media (max-width: 1110px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .container > :first-child {
+        display: flex;
+        min-width: 12rem;
+        min-height: calc(100vh - 20rem);
+        gap: 2.5rem;
+    }
+}
+
+@media (max-width: 905px) {
+    .container {
+        margin-top: 0;
+        translate: 0 6rem;
+    }
+
+    .productInfos > :first-child {
+        font-size: large;
+        line-height: 2rem;
+    }
+}
+
+@media (max-width: 840px) {
+    .container {
+        min-width: 15rem;
+    }
+    
+    .container li {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
 }

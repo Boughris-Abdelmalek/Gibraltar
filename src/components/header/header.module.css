@@ -1,6 +1,14 @@
 .header {
   height: 4rem;
+  width: 100%;
   background-color: #232f3e;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
 }
 
 .navigation ul {
@@ -88,4 +96,53 @@ h5 {
   font-weight: 400;
   font-size: .7rem;
   text-decoration: none;
+}
+
+.menuContainer {
+  display: none;
+  height: 2.5rem;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+
+@media (max-width: 905px) {
+  .header {
+    position: fixed;
+    z-index: 2;
+  }
+  
+  .menuContainer {
+    display: block;
+  }
+  
+  .navigation ul {
+    flex-direction: column;
+    position: absolute;
+    transform: translateY(-100%);
+    padding: 2rem;
+    background-color: #232f3e;
+    width: 100%;
+    height: calc(100vh - 4rem);
+    font-size: 2rem;
+    transition: all 0.25s ease-in-out;
+  }
+
+  .userContainer > p{
+    font-size: 1.25rem;
+  }
+
+  .expanded {
+    translate: 0 154%;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .SearchBar {
+    height: 3rem;
+  }
+
+  .signButton {
+    font-size: 2rem;
+  }
 }

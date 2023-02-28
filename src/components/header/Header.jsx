@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState } from "react";
 
 import { AuthContext } from "../../context/AuthContext";
 import { useLogout } from "../../hooks/useLogout";
@@ -7,6 +7,7 @@ import { useLogout } from "../../hooks/useLogout";
 import logo from "../../assets/images/logo.png";
 import logoSvg from "../../assets/images/logo.svg";
 import styles from "./header.module.css";
+import menu from "../../assets/icons/menu.png";
 
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
@@ -23,6 +24,8 @@ const Header = () => {
 
   const navigate = useNavigate();
 
+  const [expanded, setExpanded] = useState(false);
+
   const handleSearch = () => {
     navigate(`/search/${searchInput.current.value}`);
   };
@@ -30,11 +33,17 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <nav className={styles.navigation}>
-        <ul>
-          <Link to="/" className={styles.logoContainer}>
-            <img src={logoSvg} alt="logoImg" className={styles.logoImg} />
-            <img src={logo} alt="logoTxt" className={styles.logoTxt} />
-          </Link>
+        <Link to="/" className={styles.logoContainer}>
+          <img src={logoSvg} alt="logoImg" className={styles.logoImg} />
+          <img src={logo} alt="logoTxt" className={styles.logoTxt} />
+        </Link>
+        <div
+          className={styles.menuContainer}
+          onClick={() => (expanded ? setExpanded(false) : setExpanded(true))}
+        >
+          <img src={menu} alt="menu" />
+        </div>
+        <ul className={`${styles.dropdown} ${expanded ? styles.expanded : ""}`}>
           <li className={styles.searchBarContainer}>
             <input
               type="search"
@@ -46,8 +55,8 @@ const Header = () => {
               component={SearchIcon}
               sx={{
                 backgroundColor: "#febd69",
-                height: "2rem",
-                width: "2rem",
+                height: expanded ? "3rem" : "2rem",
+                width: expanded ? "3rem" : "2rem",
                 padding: ".25rem",
                 border: "none",
                 cursor: "pointer",
@@ -59,7 +68,7 @@ const Header = () => {
             <div className={styles.userContainer}>
               {user ? (
                 <>
-                  <p>{user.email}</p>
+                  {!expanded && <p>{user.email}</p>}
                   <button onClick={logout} className={styles.signButton}>
                     Sign Out
                   </button>
@@ -94,8 +103,8 @@ const Header = () => {
                 component={ShoppingBasketIcon}
                 sx={{
                   fill: "white",
-                  height: "2.5rem",
-                  width: "2.5rem",
+                  height: expanded ? "4rem" : "2.5rem",
+                  width: expanded ? "4rem" : "2.5rem",
                   padding: ".25rem",
                   border: "none",
                   cursor: "pointer",

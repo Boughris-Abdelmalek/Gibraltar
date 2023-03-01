@@ -42,3 +42,6 @@ dist-ssr
 #// Initialize Firebase
 #const app = initializeApp(firebaseConfig);
 /main.py
+/.env
+/ME_PROJECT_AMAZON_CLONE_REACT.pdf
+/products.json

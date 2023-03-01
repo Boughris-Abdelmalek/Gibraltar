@@ -10,7 +10,7 @@
   justify-content: center;
   gap: 2rem;
   width: 25rem;
-  height: 30rem;
+  height: calc(100% - 8rem);
   padding: 1.5rem;
   margin-block: 10rem;
   border-radius: 2px;
@@ -19,15 +19,9 @@
 
 .logoImg {
   position: absolute;
-  translate: .25rem 4rem;
+  translate: .25rem -1.5rem;
   width: 12rem;
-  height: 2.5rem;
-}
-
-.logoTxt {
-  position: absolute;
-  translate: 0 -2rem;
-  width: 20rem;
+  height: 12rem;
 }
 
 .logoContainer {
@@ -36,6 +30,7 @@
   position: relative;
   overflow: hidden;
   height: 8rem;
+  margin-top: -1rem;
   width: 100%;
   background-color: black;
 }

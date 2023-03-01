@@ -1,15 +1,13 @@
 import styles from "./form.module.css";
 import { Box, Button, TextField } from "@mui/material";
-import logoSvg from "../../assets/images/logo.svg";
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/Gibraltar.svg"
 import { Link } from "react-router-dom";
 
 const Form = ({ title, setEmail, setPassword, handleAction, register }) => {
   return (
     <div className={styles.formContainerOuter}>
       <div className={styles.logoContainer}>
-        <img src={logoSvg} alt="logoImg" className={styles.logoImg} />
-        <img src={logo} alt="logoTxt" className={styles.logoTxt} />
+        <img src={logo} alt="logoImg" className={styles.logoImg} />
       </div>
       <Box
         component="form"

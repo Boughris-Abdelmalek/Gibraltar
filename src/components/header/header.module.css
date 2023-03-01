@@ -31,14 +31,7 @@ h5 {
 
 .logoImg {
   position: absolute;
-  translate: 2.25rem 2rem;
-  width: 6rem;
-  height: 1.25rem;
-}
-
-.logoTxt {
-  position: absolute;
-  translate: 0 -3.75rem;
+  translate: -1rem -3rem;
   width: 10rem;
   height: 10rem;
 }
@@ -101,6 +94,7 @@ h5 {
 .menuContainer {
   display: none;
   height: 2.5rem;
+  margin-right: 1rem;
   cursor: pointer;
 }
 
@@ -112,14 +106,21 @@ h5 {
   }
   
   .menuContainer {
-    display: block;
+    display: flex;
+    width: 3rem;
+  }
+
+  .navigation {
+    width: 100%;
   }
   
   .navigation ul {
     flex-direction: column;
+    align-items: end;
     position: absolute;
     transform: translateY(-100%);
     padding: 2rem;
+    padding-bottom: 10rem;
     background-color: #232f3e;
     width: 100%;
     height: calc(100vh - 4rem);
@@ -137,8 +138,13 @@ h5 {
     pointer-events: auto;
   }
 
+  .searchBarContainer {
+    width: 100%;
+  }
+
   .SearchBar {
     height: 3rem;
+    width: 100%;
   }
 
   .signButton {

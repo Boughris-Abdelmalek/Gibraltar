@@ -4,8 +4,7 @@ import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { useLogout } from "../../hooks/useLogout";
 
-import logo from "../../assets/images/logo.png";
-import logoSvg from "../../assets/images/logo.svg";
+import logoSvg from "../../assets/images/Gibraltar.svg";
 import styles from "./header.module.css";
 import menu from "../../assets/icons/menu.png";
 
@@ -35,7 +34,6 @@ const Header = () => {
       <nav className={styles.navigation}>
         <Link to="/" className={styles.logoContainer}>
           <img src={logoSvg} alt="logoImg" className={styles.logoImg} />
-          <img src={logo} alt="logoTxt" className={styles.logoTxt} />
         </Link>
         <div
           className={styles.menuContainer}

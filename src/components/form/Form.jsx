@@ -1,12 +1,14 @@
 import styles from "./form.module.css";
 import { Box, Button, TextField } from "@mui/material";
 import logo from "../../assets/images/Gibraltar.svg"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Form = ({ title, setEmail, setPassword, handleAction, register }) => {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.formContainerOuter}>
-      <div className={styles.logoContainer}>
+      <div className={styles.logoContainer} onClick={() => navigate("/")}>
         <img src={logo} alt="logoImg" className={styles.logoImg} />
       </div>
       <Box

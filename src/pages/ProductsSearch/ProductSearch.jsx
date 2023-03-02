@@ -39,13 +39,13 @@ const ProductSearch = () => {
   return (
     <>
       <Header />
-      <div className={styles.productsContainer}>
-        {loading ? (
-          <div className={styles.loaderContainer}>
-            <CircularProgress />
-          </div>
-        ) : dataset.length ? (
-          dataset.map((val, key) => {
+      {loading ? (
+        <div className={styles.loaderContainer}>
+          <CircularProgress />
+        </div>
+      ) : dataset.length ? (
+        <div className={styles.productsContainer}>
+          {dataset.map((val, key) => {
             if (val[1]["About Product"]) {
               return (
                 <Product
@@ -61,11 +61,11 @@ const ProductSearch = () => {
             } else {
               return null;
             }
-          })
-        ) : (
-          <p className={styles.notFound}>No products found for '{products}'</p>
-        )}
-      </div>
+          })}
+        </div>
+      ) : (
+        <p className={styles.notFound}>No products found for '{products}'</p>
+      )}
     </>
   );
 };

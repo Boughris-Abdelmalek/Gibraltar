@@ -15,7 +15,7 @@
     content: "";
     position: absolute;
     bottom: 5%;
-    width: 100%;
+    width: 103%;
     height: 10rem;
     z-index: 2;
     filter: blur(10px);

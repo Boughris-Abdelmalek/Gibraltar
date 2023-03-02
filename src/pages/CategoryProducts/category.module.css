@@ -38,7 +38,7 @@
     font-weight: bolder;
 }
 
-.productsContainer > :last-child :not(p) {
+.productsContainer > :last-child :has(p) {
     display: none;
 }
 

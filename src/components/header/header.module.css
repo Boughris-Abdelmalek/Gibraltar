@@ -128,6 +128,10 @@ h5 {
     transition: all 0.25s ease-in-out;
   }
 
+  .userContainer {
+    align-items: flex-end;
+  }
+
   .userContainer > p{
     font-size: 1.25rem;
   }
